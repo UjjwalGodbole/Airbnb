@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <br>
+    <h3>Edit your  listing</h3>
+    <br>
+    <div class="row col-8 offset-2">
+    <form action="/listings/<%= listing._id %>?_method=put" novalidate method="post" class="needs-validation">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input required  class="form-control" type="text" id="title" value="<%= listing.title %>" name="listing[title]">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea required  id="description" class="form-control"  name="listing[description]"><%= listing.description %></textarea>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-4">
+                <label for="price" class="form-label">Price</label>
+                <input required  class="form-control"  id="price" value="<%= listing.price %>" name="listing[price]">
+            </div>
+            <div class="mb-3 col-8">
+                <label for="country" class="form-label">Conutry</label>
+                <input required  class="form-control" type="text" id="conutry" value="<%= listing.country %>" name="listing[country]">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Image</label>
+            <input required  class="form-control" type="text" id="img" value="<%= listing.image.url %>" name="listing[image][url]">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input required type="text" class="form-control" id="location" value="<%= listing.location %>" name="listing[location]">
+        </div>
+        <button class="offset-5 btn btn-danger">Submit</button>
+    </form>
+</div>
+<script src="/js/script.js"></script>
+</body>
